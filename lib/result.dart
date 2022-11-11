@@ -31,6 +31,10 @@ class result extends StatelessWidget{
                             style: TextStyle(
                               color: Colors.white
                             ),),
+                            Text("Country: ${snapshot.data["country"].toString()}",
+                            style: TextStyle(
+                              color: Colors.white
+                            ),),
                             Text('Description: ${snapshot.data['description'].toString()}',
                             style: TextStyle(
                               color:Colors.white
@@ -81,6 +85,7 @@ Future  apicall(String city) async{
     'humidity': json['main']['humidity'],
     'pressure': json['main']['pressure'],
     'speed': json['wind']['speed'],
-    'visibiliy': json['visibility']};
+    'visibility': json['visibility'],
+    'country': json['sys']['country']};
   return output;
 }
