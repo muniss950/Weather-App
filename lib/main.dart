@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Weather App Home Page'),
+      home: const MyHomePage(title: 'Weather App'),
     );
   }
 }
@@ -39,10 +39,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black45,
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text(widget.title,),
+        backgroundColor: Colors.black,
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -54,7 +56,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 margin: EdgeInsets.all(20),
                 child: TextField(
                   controller: nameController,
-                  decoration: InputDecoration(labelText: "Enter city name"),
+                  decoration: InputDecoration(
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white)),
+                  labelText: "Enter city name",
+                  labelStyle: TextStyle(color:Colors.white70)),
+                  style: TextStyle(color: Colors.white),
                 )),
             Container(
               margin: EdgeInsets.all(20),
@@ -63,7 +73,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ElevatedButton(onPressed:() {
               Navigator.push(context,MaterialPageRoute(builder: (BuildContext) {return result(city: nameController.text);} ),);
             },
-                child: const Text("Show"))
+                child: const Text("Show"),
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(Colors.black)
+            ),)
           ],
         ),
       ),
