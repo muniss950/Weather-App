@@ -1,6 +1,6 @@
-# weather_app
+# Weather App
 
-A new Flutter project.
+A simple Live Weather app made using flutter.
 
 ## Getting Started
 
